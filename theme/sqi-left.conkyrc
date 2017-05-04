@@ -1,0 +1,76 @@
+# SQI (Shell Query Info) Conky Theme
+# Author jasperes
+
+use_xft yes
+xftfont mono:size=10
+xftalpha 0.8
+text_buffer_size 2048
+update_interval 1
+total_run_times 0
+own_window yes
+own_window_transparent yes
+own_window_type desktop
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+minimum_size 800 720
+maximum_width 275
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders yes
+stippled_borders 0
+border_margin 1
+border_width 0
+default_color 3C3B37
+own_window_colour F584A4
+
+alignment top_left
+gap_x 40
+gap_y 40
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+net_avg_samples 2
+override_utf8_locale yes
+use_spacer none
+own_window_argb_visual no
+own_window_argb_value 0
+
+TEXT
+
+${font FreeSans:Bold:size=10}${color white}Sistem ${hr 2}
+
+${color}${font FreeSans:bold:size=9}OS ${font}${alignr}${execi 30 uname -a | grep "Linux" | cut -d " " -f2}
+${color}${font FreeSans:bold:size=9}Arch ${font}${alignr} ${machine}
+${color}${font FreeSans:bold:size=9}Kernel ${font}${alignr} ${sysname} ${kernel}
+${color}${font FreeSans:bold:size=9}Hostname ${font}${alignr} ${nodename}
+${color}${font FreeSans:bold:size=9}Uptime ${font}${alignr} ${uptime}
+
+${font FreeSans:Bold:size=10}${color white}Network ${hr 2}
+
+${color}${font FreeSans:bold:size=9}Public IP ${font}${alignr}${execi 3600 wget -q -O /dev/stdout http://checkip.dyndns.org/ | cut -d : -f 2- | cut -d \< -f -1}
+
+${color}${font FreeSans:bold:size=9}Ethernet IP ${font}${alignr}${addr eth0}
+${color}${font FreeSans:bold:size=9}Upload ${font}${alignr}${upspeed eth0}-  ${totalup eth0}
+${color}${font FreeSans:bold:size=9}Download ${font}${alignr}${downspeed eth0}-  ${totaldown eth0}
+
+${color}${font FreeSans:bold:size=9}Wlan IP ${font}${alignr}${addr wlan0}
+${color}${font FreeSans:bold:size=9}Upload ${font}${alignr}${upspeed wlan0}-  ${totalup wlan0}
+${color}${font FreeSans:bold:size=9}Download ${font}${alignr}${downspeed wlan0}-  ${totaldown wlan0}
+
+${font FreeSans:Bold:size=10}${color white}Processor ${hr 2}
+
+${color}${font FreeSans:bold:size=9}Model ${font}${alignr}${execi 30 less /proc/cpuinfo | head -n10 | grep "model name" | cut -d ":" -f2 | cut -d "@" -f1}
+${color}${font FreeSans:bold:size=9}Frequence ${font}${alignr}${execi 30 less /proc/cpuinfo | head -n10 | grep "model name" | cut -d ":" -f2 | cut -d "@" -f2} - ${freq_g}Ghz
+${color}${font FreeSans:bold:size=9}Usage ${font}${alignr}${cpugraph cpu0 15,60 556B2F 9ACD32}
+
+${font FreeSans:Bold:size=10}${color white}Memory ${hr 2}
+
+${color}${font FreeSans:bold:size=9}RAM ${font}${alignr}${mem} / ${memmax} ${membar 10,60}
+${color}${font FreeSans:bold:size=9}Swap ${font}${alignr}${swap} / ${swapmax} ${swapbar 10,60}
+
+${font FreeSans:Bold:size=10}${color white}HDD ${hr 2}
+
+${color}${font FreeSans:bold:size=9}Space ${font}${alignr}${fs_used /} / ${fs_size /} ${fs_bar 10,60 /}
+${color}${font FreeSans:bold:size=9}Read ${font}${alignr}${diskio_read}
+${color}${font FreeSans:bold:size=9}Write ${font}${alignr}${diskio_write}
