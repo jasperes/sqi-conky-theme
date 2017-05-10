@@ -12,8 +12,8 @@ own_window_transparent yes
 own_window_type desktop
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 double_buffer yes
-minimum_size 800 720
-maximum_width 275
+minimum_size 700 720
+maximum_width 260
 draw_shades no
 draw_outline no
 draw_borders no
@@ -37,11 +37,10 @@ own_window_argb_visual no
 own_window_argb_value 0
 
 TEXT
-${voffset 10}${image ~/.config/conky/logo/linux.png -p 70,-0 -s 128x128}${font Droid Sans Bold:pixelsize=30} 
+${voffset 10}${image ~/.config/conky/logo/linux.png -p 60,-0 -s 128x128}${font Droid Sans Bold:pixelsize=30} 
 ${voffset 10}${voffset 0}
 
 ${font FreeSans:Bold:size=10}${color white}Sistem ${hr 2}
-
 ${color}${font FreeSans:bold:size=9}OS ${font}${alignr}${execi 30 uname -a | grep "Linux" | cut -d " " -f2}
 ${color}${font FreeSans:bold:size=9}Arch ${font}${alignr} ${machine}
 ${color}${font FreeSans:bold:size=9}Kernel ${font}${alignr} ${sysname} ${kernel}
@@ -49,7 +48,6 @@ ${color}${font FreeSans:bold:size=9}Hostname ${font}${alignr} ${nodename}
 ${color}${font FreeSans:bold:size=9}Uptime ${font}${alignr} ${uptime}
 
 ${font FreeSans:Bold:size=10}${color white}Network ${hr 2}
-
 ${color}${font FreeSans:bold:size=9}Public IP ${font}${alignr}${execi 3600 wget -q -O /dev/stdout http://checkip.dyndns.org/ | cut -d : -f 2- | cut -d \< -f -1}
 
 ${color}${font FreeSans:bold:size=9}Ethernet IP ${font}${alignr}${addr eth0}
@@ -61,18 +59,15 @@ ${color}${font FreeSans:bold:size=9}Upload ${font}${alignr}${upspeed wlan0}-  ${
 ${color}${font FreeSans:bold:size=9}Download ${font}${alignr}${downspeed wlan0}-  ${totaldown wlan0}
 
 ${font FreeSans:Bold:size=10}${color white}Processor ${hr 2}
-
 ${color}${font FreeSans:bold:size=9}Model ${font}${alignr}${execi 30 less /proc/cpuinfo | head -n10 | grep "model name" | cut -d ":" -f2 | cut -d "@" -f1}
 ${color}${font FreeSans:bold:size=9}Frequence ${font}${alignr}${execi 30 less /proc/cpuinfo | head -n10 | grep "model name" | cut -d ":" -f2 | cut -d "@" -f2} - ${freq_g}Ghz
 ${color}${font FreeSans:bold:size=9}Usage ${font}${alignr}${cpugraph cpu0 15,60 556B2F 9ACD32}
 
 ${font FreeSans:Bold:size=10}${color white}Memory ${hr 2}
-
 ${color}${font FreeSans:bold:size=9}RAM ${font}${alignr}${mem} / ${memmax} ${membar 10,60}
 ${color}${font FreeSans:bold:size=9}Swap ${font}${alignr}${swap} / ${swapmax} ${swapbar 10,60}
 
 ${font FreeSans:Bold:size=10}${color white}HDD ${hr 2}
-
 ${color}${font FreeSans:bold:size=9}Space ${font}${alignr}${fs_used /} / ${fs_size /} ${fs_bar 10,60 /}
 ${color}${font FreeSans:bold:size=9}Read ${font}${alignr}${diskio_read}
 ${color}${font FreeSans:bold:size=9}Write ${font}${alignr}${diskio_write}
