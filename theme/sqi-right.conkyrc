@@ -68,7 +68,7 @@ ${color}${top_mem name 10}${alignr}${top_mem mem_res 10}
 ${font FreeSans:Bold:size=10}${color white}Partitions ${hr 2}
 
 ${color}${font FreeSans:bold:size=9}Partition                          Space     Used       Free${font}
-${execi 30 df -h | grep "/dev/sd" | grep -v "/dev/sdb" | cut -d "%" -f1}
+${execi 30 df -h | grep "/dev/sd" | cut -d "%" -f1}
 
 ${color}${font FreeSans:bold:size=9}Mounted in${font}
-${execi 30 df -h | grep "/dev/sd" | grep -v "/dev/sdb" | cut -d "%" -f2}
+${execi 30 df -h | grep "/dev/sd" | cut -d "%" -f2}
