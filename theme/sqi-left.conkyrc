@@ -37,6 +37,8 @@ own_window_argb_visual no
 own_window_argb_value 0
 
 TEXT
+${voffset 10}${image ~/.config/conky/logo/linux.png -p 70,-0 -s 128x128}${font Droid Sans Bold:pixelsize=30} 
+${voffset 10}${voffset 0}
 
 ${font FreeSans:Bold:size=10}${color white}Sistem ${hr 2}
 
