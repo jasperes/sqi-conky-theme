@@ -2,14 +2,17 @@
 # Author jasperes
 
 use_xft yes
-xftfont mono:size=10
+xftfont mono:size=9
 xftalpha 0.8
 text_buffer_size 2048
 update_interval 1
 total_run_times 0
 own_window yes
 own_window_transparent yes
-own_window_type desktop
+own_window_class Conky
+own_window_type override
+background yes 
+#own_window_type desktop
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 double_buffer yes
 minimum_size 700 720
@@ -21,8 +24,7 @@ draw_graph_borders yes
 stippled_borders 0
 border_margin 1
 border_width 0
-default_color 3C3B37
-own_window_colour F584A4
+default_color white
 
 alignment top_right
 gap_x 40
@@ -38,9 +40,9 @@ own_window_argb_value 0
 
 TEXT
 
-${font FreeSans:Bold:size=10}${color white}Process ${hr 2}${font}${alignr}
+${font FreeSans:Bold:size=9}${color black}Process ${hr 2}${font}${alignr}
 
-${color}${font FreeSans:bold:size=9}Application${alignr}CPU${font}${alignr}
+${color black}${font FreeSans:bold:size=8}Application${alignr}CPU${font}${alignr}
 ${color}${top name 1}${alignr}${top cpu 1}
 ${color}${top name 2}${alignr}${top cpu 2}
 ${color}${top name 3}${alignr}${top cpu 3}
@@ -52,7 +54,7 @@ ${color}${top name 8}${alignr}${top cpu 8}
 ${color}${top name 9}${alignr}${top cpu 9}
 ${color}${top name 10}${alignr}${top cpu 10}
 
-${color}${font FreeSans:bold:size=9}Application${alignr}MEM ${font}${alignr}
+${color black}${font FreeSans:bold:size=8}Application${alignr}MEM${font}${alignr}
 ${color}${top_mem name 1}${alignr}${top_mem mem_res 1}
 ${color}${top_mem name 2}${alignr}${top_mem mem_res 2}
 ${color}${top_mem name 3}${alignr}${top_mem mem_res 3}
@@ -65,10 +67,10 @@ ${color}${top_mem name 8}${alignr}${top_mem mem_res 8}
 ${color}${top_mem name 9}${alignr}${top_mem mem_res 9}
 ${color}${top_mem name 10}${alignr}${top_mem mem_res 10}
 
-${font FreeSans:Bold:size=10}${color white}Partitions ${hr 2}
+${font FreeSans:Bold:size=9}${color black}Partitions ${hr 2}
 
-${color}${font FreeSans:bold:size=9}Partition                          Space     Used       Free${font}
-${execi 30 df -h | grep "/dev/sd" | cut -d "%" -f1}
+${color black}${font FreeSans:bold:size=8}Partition             Space   Used    Free    %${font}
+${color}${execi 30 df -h | grep "/dev/sd" | cut -d "%" -f1}
 
-${color}${font FreeSans:bold:size=9}Mounted in${font}
-${execi 30 df -h | grep "/dev/sd" | cut -d "%" -f2}
+${color black}${font FreeSans:bold:size=8}Mounted in${font}
+${color}${execi 30 df -h | grep "/dev/sd" | cut -d "%" -f2 | cut -d " " -f2}
