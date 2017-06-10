@@ -1,0 +1,49 @@
+manjaro
+	default = CCFFCC
+	title = 387CBF
+	logo = manjaro.png
+
+debian
+	default = white
+	title = D5094A
+	logo = debian.png
+
+fedora
+	default = white
+	title = 406CA9
+	logo = fedora.png
+
+archlinux
+	default = black
+	title = 387CBF
+	logo = archlinux.png
+
+linux
+	default = white
+	title = black
+	logo = linux.png
+
+ubuntu
+	default = FCB059
+	title = D40000
+	logo = ubuntu.png
+
+mandriva
+	default = EFA40A
+	title = 4761A6
+	logo = mandriva.png
+
+redhat
+	default = black
+	title = D90202
+	logo = redhat.png
+
+suse
+	default = CCFFCC
+	title = 82BF46
+	logo = suse.png
+
+bsd
+	default = black
+	title = 990000
+	logo = bsd.png
