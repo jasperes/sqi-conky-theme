@@ -1,6 +1,6 @@
 manjaro
 	default = CCFFCC
-	title = 387CBF
+	title = 35BF5C
 	logo = manjaro.png
 
 debian
